@@ -35,8 +35,8 @@
 1. **And** text in hero section should be "One framework. Mobile & desktop."
 1. **And** Get started button should be visible in the hero section
 1. **When** Get started button is clicked in the hero section
-1. **Then** the URL should be https://angular.io/start
-1. **And** the title on the content should be "Getting Started with Angular: Your First App"
+1. **Then** the URL should be https://angular.io/docs
+1. **And** the title on the content should contain "Introduction to the Angular Docs"
 
 ## `TC-2` Checking search field on landing page
 
