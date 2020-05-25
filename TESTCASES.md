@@ -46,7 +46,6 @@
 1. **And** it should be "Search" as placeholder
 1. **When** it is clicked in
 1. **And** "directive" is typed in it
-1. **Then** clear icon should be visible in it
 1. **And** "Directive" should be listed in the "API" section
 1. **When** "Directive" is clicked in the "API" section
 1. **Then** the URL should be https://angular.io/api/core/Directive
