@@ -2,12 +2,26 @@ Feature: Bootstrap test cases
 
   Background:
     * configure driver = { type: 'chrome' }
+    *  def isInViewport =
+    """
+      function(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+      }
+    """
 
   Scenario: Checking form elements
     Given driver 'https://getbootstrap.com/docs/4.4/components/forms/'
     Then match driver.title == 'Forms · Bootstrap'
-    And exists('input[readonly].form-control')
-    Then scroll('input[readonly].form-control')
+    And waitFor('input[readonly].form-control').exists
+    And match script('input[readonly].form-control', isInViewport) == false
+    When scroll('input[readonly].form-control')
+    Then assert script('input[readonly].form-control', isInViewport)
 
   Scenario: Interaction with checkbox form elements
     Given driver 'https://getbootstrap.com/docs/4.4/components/forms/#checkboxes-and-radios'
@@ -40,6 +54,9 @@ Feature: Bootstrap test cases
     And waitUntil('#exampleFormControlSelect2', '_.multiple')
     And match value('#exampleFormControlSelect1') == '1'
     And def options = scriptAll('#exampleFormControlSelect1 option', '_.innerHTML')
+    # same from java code
+    # And def helper = Java.type('com.epam.ideapool.ui.helper.Helper')
+    # And assert helper.hasNoHello(options)
     And match options !contains 'hello'
     And match options contains '2'
     And select('#exampleFormControlSelect1', '2')
