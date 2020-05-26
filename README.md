@@ -6,9 +6,9 @@
 1. Maven 3
 
 ## Framework used
-https://github.com/intuit/karate  
-Karate is the only open-source tool to combine API test-automation, mocks, performance-testing and even UI automation into a single, unified framework.  
-This evaluation focuses on the UI aspect of Karate.
+- Name: Karate 
+- Home page: https://github.com/intuit/karate  
+- It is the only open-source tool to combine API test-automation, mocks, performance-testing and even UI automation into a single, unified framework. This evaluation focuses on the UI aspect of Karate.
 
 ## Test cases
 
